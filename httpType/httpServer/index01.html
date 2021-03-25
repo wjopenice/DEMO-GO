@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {{template "head"}}
+    go index html
+    <p>test p</p>
+    <h1>h1</h1>
+    {{template "foot"}}
+    {{block arg}}
+        如果找不到模板我就要显示了
+    {{end}}
+
+</body>
+</html>

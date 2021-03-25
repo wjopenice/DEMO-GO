@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Go Web</title>
+    </head>
+    <body>
+        <br />模板去除空格<br />
+        {{-data-}}
+        {{-data}}
+        {{data-}}
+
+        <br />模板接收主函数数据<br />
+        struct ==>
+            {{ .UserId }} = {{ .Username }} = {{ .Age }} = {{ .Sex }}
+        <hr />
+        map ==>
+            {{ .name }} = {{ .age }} = {{ .color }}
+        <br />模板定义变量<br />
+        {{ $MyUserName := "MyUserName"}}
+        {{ $MyUserName }}
+
+        <hr />模板IF判断<br />
+        //模板if常见操作符
+{{/*        not 非{{if not .condition}} {{end}}*/}}
+{{/*        and 与{{if and .condition1 .condition2}} {{end}}*/}}
+{{/*        or 或{{if or .condition1 .condition2}} {{end}}*/}}
+{{/*        eq 等于{{if eq .var1 .var2}} {{end}}*/}}
+{{/*        ne 不等于{{if ne .var1 .var2}} {{end}}*/}}
+{{/*        lt 小于{{if lt .var1 .var2}} {{end}}*/}}
+{{/*        le 小于等于{{if le .var1 .var2}} {{end}}*/}}
+{{/*        gt 大于{{if gt .var1 .var2}} {{end}}*/}}
+{{/*        ge 大于等于{{if ge .var1 .var2}} {{end}}*/}}
+        {{ if .condition }}
+            asasasas
+        {{ else if .condition2 }}
+            zxzxzxzx
+        {{ else }}
+            qwqwqwqwqw
+        {{ end }}
+
+        <hr />模板range循环<br />
+        {{ range .array }}
+            <span>{{ . }}</span>
+        {{ end }}
+        <br>
+        {{ range $index,$value := .array }}
+            <span>{{ $index }}=>{{ $value }}</span>
+        {{ else }}
+            <span>没有数据</span>
+        {{ end }}
+
+        <hr />模板嵌套使用指定模板<br />
+        {{ template "name" "数据" }}
+{{/*        {{ template "head" }}*/}}
+{{/*        {{ template "foot" }}*/}}
+
+        <hr />模板定义模块define<br />
+        {{ define "name" }}
+            <div>{{ . }}</div>
+        {{ end }}
+
+        <hr />模板默认block<br />
+        {{ block "name2" "数据2"}}
+            <div>{{ . }}</div>
+        {{ end }}
+    </body>
+</html>
